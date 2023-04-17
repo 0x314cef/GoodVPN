@@ -1,0 +1,1 @@
+console.log("GoodVPN 1.0.0");

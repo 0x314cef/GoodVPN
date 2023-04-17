@@ -1,0 +1,11 @@
+{
+    "name": "GoodVPN",
+    "version": "1.0.0",
+    "description": "Free VPN Chrome Extension",
+    "manifest_version": 3,
+    "author": "JHV",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "GoodVPN"
+    }
+}

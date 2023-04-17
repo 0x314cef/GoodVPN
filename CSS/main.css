@@ -1,0 +1,20 @@
+body {
+	background-color: #3c3c3c;
+	width: 300px;
+	height: 400px;
+}
+.absns {
+	position: absolute;
+	user-select: none;
+}
+.abs {
+	position: absolute;
+}
+.ns {
+	user-select: none;
+}
+#MainContent {
+	width: 300px;
+	height: 400px;
+	background-color: #3c3c3c;
+}
