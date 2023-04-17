@@ -1,2 +1,2 @@
-# GoodVPN
-Free VPN Chrome Extension
+# UtilX
+Chrome extension with a handful of useful features.
