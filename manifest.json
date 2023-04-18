@@ -1,11 +1,11 @@
 {
-    "name": "GoodVPN",
+    "name": "UtilX",
     "version": "1.0.0",
-    "description": "Free VPN Chrome Extension",
+    "description": "UtilX has many features including free VPN, Script/Style overrieds, Adblock, Fingerprint options (useragent, canvas ids etc.), Custom Network filtering, Better CTRL+F, Custom element modifications, Media Downloader and more.",
     "manifest_version": 3,
-    "author": "JHV",
+    "author": "JV",
     "action": {
         "default_popup": "index.html",
-        "default_title": "GoodVPN"
+        "default_title": "UtilX"
     }
 }
