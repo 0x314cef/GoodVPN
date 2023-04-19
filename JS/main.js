@@ -1,26 +1,58 @@
 //An index of pages
 const pages = {
-    page0: ["nfilter", "ckyman", "ctrlf", "nfilter", "mdown", "trans"],
+    page0: ["nfilter", "ckyman", "ctrlf", "mdown", "trans", "color"],
     page1: ["vpn", "adblock", "js", "css", "settings", "search"], 
-    page2: ["fp", "pemods", "pentest", "color"]
+    page2: ["fp", "pemods", "pentest"]
 }
-//Icon locations
-const iconPos = [
-    [30, 30],
-    [30, 130],
-    [130, 30],
-    [130, 130],
-    [230, 30],
-    [230, 130]
+//Decide which direction to slide the home div, and how much. c is current and t is target.
+const pageOffsets = [
+    0,//Page0
+    -235,//Page1
+    -470//Page2
 ]
+var currentPage = 1
 //Root function running when the extension's window finishes loading
+//This doesn't work like normal on extensions?
 document.addEventListener("load", function() {
-    console.log("Hello world")
+    function switchPage(page) {
+        var home = document.getElementById("home");
+        console.log(`${pageOffsets[page]}px`);
+        home.style.left = `${pageOffsets[page]}px`;
+        var previousBtn = document.getElementById(`navbtn${currentPage}`);
+        var currentBtn = document.getElementById(`navbtn${page}`)
+        currentPage = page;
+        previousBtn.style.backgroundColor = "#b1b1b1";
+        currentBtn.style.backgroundColor = "#fff";
+    }
+
     document.querySelectorAll(".navbtn").forEach(Btn => {
-        console.log(Btn.id);
         var Button = document.getElementById(Btn.id);
         Button.addEventListener("click", function() {
-            console.log("You clicked me!");
+            switch(Btn.id) {
+                case "navbtn0":
+                    switchPage(0);
+                    break;
+                case "navbtn1":
+                    switchPage(1);
+                    break;
+                case "navbtn2":
+                    switchPage(2);
+                    break;
+            }
         });
     });
+
+    document.querySelector(".icon").forEach(iconBtn => {
+        var iconButton = document.getElementById(iconBtn.id);
+        iconButton.addEventListener("click", function() {
+            var appBase = iconBtn.id;
+        });
+    })
 });
+
+//Bootleg way that should work most of the time. May not work on slower internet, i'll have to think of something else.
+//I have an idea to check for certain elements until they are all loaded.
+setTimeout(function() {
+    const loadevent = new Event("load");
+    document.dispatchEvent(loadevent);
+}, 1000)

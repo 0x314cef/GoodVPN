@@ -34,10 +34,18 @@ body {
 	border-bottom: 1px solid white;
 }
 #homebase {
+	overflow: hidden;
 	top: 45px;
 	width: 235px;
 	height: 370px;
 	background-color: #3c3c3c;
+}
+#home {
+	left: -235px;
+	top: 0px;
+	width: 705px;
+	height: 370px;
+	transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .iconbase {
 	top: -1000px;
@@ -85,27 +93,68 @@ body {
 	left: 60px;
 }
 
-#vpniconbase {
+#nfiltericonbase {
 	top: 30px;
 	left: 30px;
+}
+#ckymaniconbase {
+	top: 30px;
+	left: 130px;
+}
+#ctrlficonbase {
+	top: 130px;
+	left: 30px;
+}
+#mdowniconbase {
+	top: 130px;
+	left: 130px;
+}
+#transiconbase {
+	top: 230px;
+	left: 30px;
+}
+#coloriconbase {
+	top: 230px;
+	left: 130px;
+}
+
+
+
+#vpniconbase {
+	top: 30px;
+	left: 265px;
 }
 #adblockiconbase {
 	top: 30px;
-	left: 130px;
+	left: 365px;
 }
 #jsiconbase {
 	top: 130px;
-	left: 30px;
+	left: 265px;
 }
 #cssiconbase {
 	top: 130px;
-	left: 130px;
+	left: 365px;
 }
 #settingsiconbase {
 	top: 230px;
-	left: 30px;
+	left: 265px;
 }
 #searchiconbase {
 	top: 230px;
-	left: 130px;
+	left: 365px;
+}
+
+
+#fpiconbase {
+	top: 30px;
+	left: 491px;
+}
+#pemodsiconbase {
+	top: 30px;
+	left: 591px;
+}
+#pentesticonbase {
+	top: 130px;
+	left: 491px;
 }
