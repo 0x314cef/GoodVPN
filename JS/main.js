@@ -1,8 +1,6 @@
 //An index of pages
-const pages = {
-    page0: ["nfilter", "ckyman", "ctrlf", "mdown", "trans", "color"],
-    page1: ["vpn", "adblock", "js", "css", "settings", "search"], 
-    page2: ["fp", "pemods", "pentest"]
+const appIndex {
+    "vpn": undefined
 }
 //Decide which direction to slide the home div, and how much. c is current and t is target.
 const pageOffsets = [
@@ -45,7 +43,8 @@ document.addEventListener("load", function() {
     document.querySelector(".icon").forEach(iconBtn => {
         var iconButton = document.getElementById(iconBtn.id);
         iconButton.addEventListener("click", function() {
-            var appBase = iconBtn.id;
+            var app = iconBtn.id;
+            app.open();
         });
     })
 });
@@ -56,3 +55,42 @@ setTimeout(function() {
     const loadevent = new Event("load");
     document.dispatchEvent(loadevent);
 }, 1000)
+
+class neth {
+    get(url, data, options) {
+        return new Promise(async function(resolve, reject) {
+            var XHR = new XMLHttpRequest();
+            XHR.addEventListener("load", function(event) {
+                resolve(event);
+            });
+            XHR.addEventListener("abort", function(event) {
+                reject(event);
+            });
+            XHR.addEventListener("error", function(event) {
+                reject(event);
+            });
+            
+        });
+    }
+}
+
+class vpnApp {
+    constructor() {
+
+        this.proxyConfig = {
+            "mode": "fixed_servers",
+            "rules": {
+                "proxyForHttp": {
+                    "scheme": "socks5",
+                    "host": null
+                }
+            }
+        }
+    }
+    connect() {
+
+    }
+    disconnect() {
+
+    }
+}

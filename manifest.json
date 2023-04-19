@@ -2,6 +2,9 @@
     "name": "UtilX",
     "version": "1.0.0",
     "description": "UtilX has many features including free VPN, Script/Style overrieds, Adblock, Fingerprint options (useragent, canvas ids etc.), Custom Network filtering, Better CTRL+F, Custom element modifications, Media Downloader and more.",
+    "permissions": [
+        "proxy"
+    ],
     "manifest_version": 3,
     "author": "JV",
     "action": {
