@@ -43,8 +43,13 @@ document.addEventListener("load", function() {
     document.querySelectorAll(".icon").forEach(iconBtn => {
         var iconButton = document.getElementById(iconBtn.id);
         iconButton.addEventListener("click", function() {
-            var app = iconBtn.id;
-            app.open();
+            chrome.runtime.sendMessage({"command": "initApp", "data": "vpn"}, function(response) {
+                if (response && response.error) {
+                    console.log(response.info);
+                } else {
+                    console.log(response);
+                }
+            });
         });
     })
 });
@@ -55,53 +60,3 @@ setTimeout(function() {
     const loadevent = new Event("load");
     document.dispatchEvent(loadevent);
 }, 1000)
-
-class nethandler {
-    get(url, data, options) {
-        return new Promise(async function(resolve, reject) {
-            var XHR = new XMLHttpRequest();
-            XHR.addEventListener("load", function(event) {
-                resolve(event);
-                XHR = null;
-            });
-            XHR.addEventListener("abort", function(event) {
-                reject(event);
-                XHR = null;
-            });
-            XHR.addEventListener("error", function(event) {
-                reject(event);
-                XHR = null;
-            });
-            XHR.open("get", url);
-            XHR.send();
-        });
-    }
-}
-const neth = new nethandler;
-
-class vpnApp {
-    constructor() {
-        console.log("Fetching...")
-        neth.get("https://proxylist.geonode.com/api/proxy-list?limit=250&page=1&sort_by=responseTime&sort_type=asc&filterUpTime=90&protocols=socks5&anonymityLevel=elite&anonymityLevel=anonymous").then(respose => {
-            console.log(respose);
-        });
-    }
-    connect() {
-        this.proxyConfig = {
-            "mode": "fixed_servers",
-            "rules": {
-                "proxyForHttp": {
-                    "scheme": "socks5",
-                    "host": null
-                }
-            }
-        }
-    }
-    disconnect() {
-
-    }
-    open() {
-
-    }
-}
-appIndex.vpn = new vpnApp();
