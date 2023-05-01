@@ -63,12 +63,19 @@ class vpnApp {
                 proxyList = proxyList.split("\n");
                 proxyList.forEach(proxy => {
                     proxy=proxy.split(":");
+                    console.log(`proxy=${proxy[0]}&port=${proxy[1]}&type=socks5`);
                     neth.post("https://catchproxy.com/geo", `proxy=${proxy[0]}&port=${proxy[1]}&type=socks5`, {"mode":"no-cors", "headers":{"Content-Type": "application/x-www-form-urlencoded"}}).then(res => {
                         res.text().then(checkedProxy => {
-                            console.log(checkedProxy);
-                            promise[0]();
+                        console.log(checkedProxy);
+                            //promise[0]();
                         })
-                    })
+                
+                        res.json().then(checkedProxy => {
+                            console.log(checkedProxy);
+                            //promise[0]();
+                        
+                        })
+                    });
                 });
             })
         });
